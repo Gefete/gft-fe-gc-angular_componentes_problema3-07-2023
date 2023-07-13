@@ -1,0 +1,22 @@
+<div class="container justify-content-center text-center">
+  <h1>Administración de artículos</h1>
+  <table>
+    <tr>
+      <th>Codigo</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Borrar</th>
+      <th>Seleccionar</th>
+    </tr>
+    <tr *ngFor="let item of datosRecibidos">
+      <td>{{item.codigo}}</td>
+      <td>{{item.descripcion}}</td>
+      <td>{{item.precio}}</td>
+      <td><button (click)="deleteItem(item.codigo)">Borrar?</button></td>
+      <td><button>Seleccionar</button></td>
+    </tr>
+  </table>
+  <!-- {{ datosRecibidos | json}} -->
+</div>
+
+<app-insertitem (productListPush)="recibirDatos($event)"></app-insertitem>
