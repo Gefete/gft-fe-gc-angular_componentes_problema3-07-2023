@@ -8,15 +8,16 @@
       <th>Borrar</th>
       <th>Seleccionar</th>
     </tr>
+    <!-- Elementos del array que se mostraran en la tabla -->
     <tr *ngFor="let item of datosRecibidos">
       <td>{{item.codigo}}</td>
       <td>{{item.descripcion}}</td>
       <td>{{item.precio}}</td>
+      <!-- Botones de acción de la tabla -->
       <td><button (click)="deleteItem(item.codigo)">Borrar?</button></td>
-      <td><button>Seleccionar</button></td>
+      <td><button (click)="selectItem(item.codigo)">Seleccionar</button></td>
     </tr>
   </table>
-  <!-- {{ datosRecibidos | json}} -->
 </div>
 
-<app-insertitem (productListPush)="recibirDatos($event)"></app-insertitem>
+<app-insertitem (productListPush)="recibirDatos($event)" [producListPull]="datosRecibidos" [itemSelected]="itemSelect"></app-insertitem><!--  -->
